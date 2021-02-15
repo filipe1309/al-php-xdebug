@@ -20,7 +20,7 @@
   $usuario = new Usuario('Filipe Leuch');
   $leilao = new Leilao('Fiat 147 0km');
 
-  var_dump('<pre>', $usuario, $leilao);
+  var_dump($usuario, $leilao);
 
   ?>
 
