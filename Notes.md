@@ -38,3 +38,21 @@ xdebug.collect_params=3
 xdebug.dump_globals=on
 xdebug.dump.SERVER=REQUEST_URI
 ```
+
+### profiling
+
+https://xdebug.org/docs/profiler
+https://www.jetbrains.com/help/phpstorm/profiling-with-xdebug.html#enable-profiling-with-xdebug
+
+```ini
+xdebug.mode=profile
+xdebug.output_dir=/home/usuario/dev/personal/alura/alura-php-xdebug/profiling
+```
+
+#### Read profile files with Xdebug Webgrind
+
+https://github.com/jokkedk/webgrind
+git clone git@github.com:jokkedk/webgrind.git
+cd webgrind
+composer serve
+http://localhost:8080/
