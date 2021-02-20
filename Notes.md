@@ -5,12 +5,16 @@ vendor/bin/phpunit
 vendor/bin/phpunit --filter testBuscaLeiloesNaoFinalizados
 php -S localhost:3000
 
+http://localhost:3000/phpinfo.php
+http://localhost:3000/var_dump.php
+
 ## XDebug
 
 https://xdebug.org/
 https://xdebug.org/wizard
 
 ```sh
+sudo apt-get install php-dev autoconf automake
 pecl install xdebug
 
 # add xdebug in php.ini
@@ -56,3 +60,44 @@ git clone git@github.com:jokkedk/webgrind.git
 cd webgrind
 composer serve
 http://localhost:8080/
+
+vendor/bin/phpunit --testsuite=unit
+
+### Simple breakpoint
+
+Exemplo execution VSCode with XDebug Extension
+Place the breakpoint
+Run "Listen for XDebug"
+Run vendor/bin/phpunit --filter testAvaliadorDeveOrdenarOs3Lances
+
+### Conditional breakpoint
+
+Expression: count($leilao->getLances()) == 3 in Avaliador.php>avaliaTresMaioresLances()
+vendor/bin/phpunit --filter testAvaliadorDeveRetornarOsMaioresLancesDisponiveis
+
+### Add to Watch
+
+### Add Expression / Evaluate Expression
+
+To calculates values in step debug
+$lance2->getValor() - $lance1->getValor();
+
+### Change value in execution time
+
+Set Value
+OR
+In Debug console
+$this->finalizado=false
+
+### Web XDebug
+
+Chrome extension: xdebug helper
+Enable remote_host
+
+Ex
+Add breakpoint in atualizar-leilao.php
+Run "Listen for XDebug"
+F5 http://localhost:3000/atualizar-leilao.php
+
+https://jonathansblog.co.uk/remote-debugging-php-in-visual-studio-code-with-xdebug
+https://medium.com/@alexcvcoelho/ambiente-de-desenvolvimento-php-com-docker-xdebug-vscode-94bda2b49be9
