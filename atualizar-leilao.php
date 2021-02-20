@@ -12,6 +12,8 @@ use Alura\Leilao\Model\Leilao;
 // ini_set('xdebug.mode', 'profile'); # before profiler_enable
 ini_set('xdebug.output_dir', '/home/usuario/dev/personal/alura/alura-php-xdebug/profiling'); # before profiler_output_dir
 
+echo "atualizar leilao";
+
 $pdo = new \PDO('sqlite::memory:');
 // $pdo->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
 $pdo->exec('create table leiloes (
